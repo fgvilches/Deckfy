@@ -2,65 +2,169 @@ import {
   ButtonItem,
   definePlugin,
   DialogButton,
-  Menu,
-  MenuItem,
   Navigation,
   PanelSection,
   PanelSectionRow,
   ServerAPI,
-  showContextMenu,
   staticClasses,
+  Header,
+  Body,
+  Title,
+  Subtitle,
+  NavigationMenu,
+  NavigationMenuItem,
+  CustomMask,
+  CustomOverlay,
+  CustomView,
+  ImageBox,
+  ImageIcon,
+  MusicIcon,
+  HeartIcon,
+  ShuffleIcon,
+  RepeatIcon,
+  PlayIcon,
+  ListMusicIcon,
+  TrainTrackIcon,
+  ProgressBar,
+  FlexLayout,
+  SpacingBox,
+  Box,
+  Text,
 } from "decky-frontend-lib";
 import { VFC } from "react";
-import { FaShip } from "react-icons/fa";
+import { FaSpotify } from "react-icons/fa";
 
 import logo from "../assets/logo.png";
 
-// interface AddMethodArgs {
-//   left: number;
-//   right: number;
-// }
-
-const Content: VFC<{ serverAPI: ServerAPI }> = ({serverAPI}) => {
-  // const [result, setResult] = useState<number | undefined>();
-
-  // const onClick = async () => {
-  //   const result = await serverAPI.callPluginMethod<AddMethodArgs, number>(
-  //     "add",
-  //     {
-  //       left: 2,
-  //       right: 2,
-  //     }
-  //   );
-  //   if (result.success) {
-  //     setResult(result.result);
-  //   }
-  // };
-
+const Content: VFC<{ serverAPI: ServerAPI }> = () => {
   return (
     <PanelSection title="Panel Section">
       <PanelSectionRow>
-        <ButtonItem
-          layout="below"
-          onClick={(e) =>
-            showContextMenu(
-              <Menu label="Menu" cancelText="CAAAANCEL" onCancel={() => {}}>
-                <MenuItem onSelected={() => {}}>Item #1</MenuItem>
-                <MenuItem onSelected={() => {}}>Item #2</MenuItem>
-                <MenuItem onSelected={() => {}}>Item #3</MenuItem>
-              </Menu>,
-              e.currentTarget ?? window
-            )
-          }
-        >
-          Server says yolo
-        </ButtonItem>
-      </PanelSectionRow>
-
-      <PanelSectionRow>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <img src={logo} />
-        </div>
+        <CustomOverlay>
+        <CustomMask />
+        <CustomView className="bg-deckPurple-800 p-6 rounded-tl-3xl w-[300px]">
+            <Header>
+            <FlexLayout spacing="spacingNormal">
+                <Title>DeckFy</Title>
+                <ImageIcon src="./icons/microscope.png" />
+            </FlexLayout>
+            </Header>
+                    <Body>
+                        <FlexLayout vertical spacing="spacingNormal">
+                            <FlexLayout spacing="spacingNormal">
+                                <Subtitle>Tus Playlists</Subtitle>
+                                <NavigationMenu>
+                                    <NavigationMenuItem>Все</NavigationMenuItem>
+                                </NavigationMenu>
+                            </FlexLayout>
+                            <FlexLayout spacing="spacingNormal">
+                                <ImageBox
+                                    alt="Album cover"
+                                    className="rounded-md"
+                                    height={80}
+                                    width={80}
+                                    src="./placeholder.svg"
+                                />
+                                <ImageBox
+                                    alt="Album cover"
+                                    className="rounded-md"
+                                    height={80}
+                                    width={80}
+                                    src="./placeholder.svg"
+                                />
+                                <ImageBox
+                                    alt="Album cover"
+                                    className="rounded-md"
+                                    height={80}
+                                    width={80}
+                                    src="./placeholder.svg"
+                                />
+                            </FlexLayout>
+                            <FlexLayout spacing="spacingNormal">
+                                <Subtitle>Избранное</Subtitle>
+                                <NavigationMenu>
+                                    <NavigationMenuItem>Все</NavigationMenuItem>
+                                </NavigationMenu>
+                            </FlexLayout>
+                            <Box>
+                                <FlexLayout vertical spacing="spacingNormal">
+                                    <FlexLayout spacing="spacingNormal">
+                                        <MusicIcon />
+                                        <FlexLayout vertical>
+                                            <Text>Цифры (feat. Rodionis)</Text>
+                                            <Subtitle>Скриптонит, Индаблэк & qurt</Subtitle>
+                                        </FlexLayout>
+                                        <SpacingBox />
+                                        <Text>3:02</Text>
+                                    </FlexLayout>
+                                    <FlexLayout spacing="spacingNormal">
+                                        <MusicIcon />
+                                        <FlexLayout vertical>
+                                            <Text>Astronaut In The Ocean</Text>
+                                            <Subtitle>Masked Wolf</Subtitle>
+                                        </FlexLayout>
+                                        <SpacingBox />
+                                        <Text>3:09</Text>
+                                    </FlexLayout>
+                                    <FlexLayout spacing="spacingNormal">
+                                        <MusicIcon />
+                                        <FlexLayout vertical>
+                                            <Text>Pressure feat. Tove Lo</Text>
+                                            <Subtitle>Martin Garrix</Subtitle>
+                                        </FlexLayout>
+                                        <SpacingBox />
+                                        <Text>3:18</Text>
+                                    </FlexLayout>
+                                    <FlexLayout spacing="spacingNormal">
+                                        <MusicIcon />
+                                        <FlexLayout vertical>
+                                            <Text>California Roll</Text>
+                                            <Subtitle>Snoop Dogg ft. Stevie Wonder, Pharrell Williams</Subtitle>
+                                        </FlexLayout>
+                                        <SpacingBox />
+                                        <Text>4:10</Text>
+                                    </FlexLayout>
+                                </FlexLayout>
+                            </Box>
+                            <Box className="bg-deckGray-700 p-6 rounded-lg">
+                                <FlexLayout spacing="spacingNormal">
+                                    <ImageBox
+                                        alt="Album cover"
+                                        className="rounded-md"
+                                        height={80}
+                                        width={80}
+                                        src="./placeholder.svg"
+                                    />
+                                    <FlexLayout vertical>
+                                        <Text>Цифры (feat. Rodionis)</Text>
+                                        <Subtitle>Скриптонит, Индаблэк & qurt</Subtitle>
+                                    </FlexLayout>
+                                    <FlexLayout spacing="spacingNormal">
+                                        <TrainTrackIcon />
+                                        <PlayIcon size={24} />
+                                        <ListMusicIcon />
+                                    </FlexLayout>
+                                </FlexLayout>
+                                <FlexLayout spacing="spacingNormal">
+                                    <Text>2:16</Text>
+                                    <ProgressBar
+                                        value={0.5}
+                                        className="flex-1 mx-4 bg-deckGray-600 rounded-full"
+                                        progressClassName="bg-deckGreen-500 h-1 rounded-full"
+                                    />
+                                    <Text>3:02</Text>
+                                </FlexLayout>
+                                <FlexLayout spacing="spacingNormal" className="mt-4 text-deckGray-400">
+                                    <ShuffleIcon />
+                                    <RepeatIcon />
+                                    <HeartIcon className="text-deckGreen-500" />
+                                    <ListMusicIcon />
+                                </FlexLayout>
+                            </Box>
+                        </FlexLayout>
+                    </Body>
+        </CustomView>
+    </CustomOverlay>
       </PanelSectionRow>
 
       <PanelSectionRow>
@@ -80,7 +184,7 @@ const Content: VFC<{ serverAPI: ServerAPI }> = ({serverAPI}) => {
 
 const DeckyPluginRouterTest: VFC = () => {
   return (
-    <div style={{ marginTop: "50px", color: "white" }}>
+    <div>
       Hello World!
       <DialogButton onClick={() => Navigation.NavigateToLibraryTab()}>
         Go to Library
@@ -95,9 +199,9 @@ export default definePlugin((serverApi: ServerAPI) => {
   });
 
   return {
-    title: <div className={staticClasses.Title}>Example Plugin</div>,
+    title: <div className={staticClasses.Title}>DeckFy</div>,
     content: <Content serverAPI={serverApi} />,
-    icon: <FaShip />,
+    icon: <FaSpotify />,
     onDismount() {
       serverApi.routerHook.removeRoute("/decky-plugin-test");
     },
